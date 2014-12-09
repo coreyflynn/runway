@@ -1,0 +1,8 @@
+{
+  "name": "runway",
+  "version": "0.0.1",
+  "dependencies": {
+    "barista": "git@github.com:cmap/barista.git#develop",
+    "polymer": "Polymer/polymer#~0.5.1"
+  }
+}

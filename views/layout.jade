@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+  head
+    title Stylesheet
+    link(rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css")
+    link(rel='stylesheet', href='/public/bower_components/barista/barista.main.min.css')
+    link(rel='stylesheet', href='public/css/styleguide-specific.css')
+    block stylesheets
+    link(rel='import' href='/public/bower_components/polymer/polymer.html')
+    script(src='http://localhost:35729/livereload.js')
+  body
+    .container
+      block content
+    script(src='/public/bower_components/barista/barista.main.min.js')
+    script(src='/public/main.js')
+    block scripts
