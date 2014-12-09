@@ -11,30 +11,69 @@
 .sg-section-content {
   opacity: 1;
   max-height: 1000px;
-  transition: all .5s linear;
+  transition: all .5s ease-out;
 }
 .sg-section-content.close{
   opacity: 0;
   max-height: 0;
 }
 
-.sg-section-code{
+.sg-content-code{
     overflow-x: auto;
     word-wrap: normal;
     white-space: pre;
-    max-height: 100px;
+    max-height: 200px;
+    opacity: 0;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+}
+
+.sg-content-code.open{
+  opacity:1;
 }
 
 
-.code-button {
-  position:absolute;
+.eye{
+  position: absolute;
   top: -0.1em;
-  left: calc(54% - 50px);
+  left: calc(54% - 30px);
   width: .6em;
   height: .6em;
-  margin: 1em 45%;
+  margin: 1.6em 45%;
   border-radius: 50%;
-  transition: all .5s linear;
+  background-color: white;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+}
+.eye:before,
+.eye:after {
+  content: '';
+  position: absolute;
+}
+.eye:before {
+  top: -0.25em;
+  left: -0.25em;
+  width: 1em;
+  height: 1em;
+  border: 1px solid gray;
+  border-radius: 80% 0%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  transform:         rotate(45deg);
+}
+
+.eye.open{
+  background-color: gray;
+}
+
+.eye.hidden{
+  opacity:0;
 }
 
 .open-close-button {
@@ -46,7 +85,10 @@
   margin: 1em 45%;
   font-size: 2em;
   border-radius: 50%;
-  transition: all .5s linear;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  transition: all .5s ease-out;
 }
 
 .open-close-button:before {
@@ -58,7 +100,10 @@
     height: 6%;;
     left: 10%;
     top: 47%;
-    transition: all .5s linear;
+    -webkit-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -o-transition: all .5s ease-out;
+    transition: all .5s ease-out;
   }
 
 .open-close-button:after {
@@ -70,12 +115,19 @@
   height: 80%;
   left: 47%;
   top: 10%;
-  transition: all .5s linear;
+  -webkit-transition: all .5s ease-out;
+  -moz-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  transition: all .5s ease-out;
 }
 
 .open-close-button.open {
   background-color: gray;
-  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  -moz-transform:    rotate(225deg);
+  -ms-transform:     rotate(225deg);
+  -o-transform:      rotate(225deg);
+  transform:         rotate(225deg);
 }
 .open-close-button.open:after {
   background-color: white;
