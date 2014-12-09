@@ -31,6 +31,17 @@ module.exports = function (grunt) {
       }
     },
 
+    replace: {
+      index: {
+        src: ['index.html'],
+        overwrite: true,
+        replacements: [{
+          from: '/public/',
+          to: 'public/'
+        }]
+      }
+    },
+
     watch: {
       options: {
         nospawn: true,
@@ -65,10 +76,15 @@ module.exports = function (grunt) {
           files: ['views/**/*.jade'],
           tasks: ['jade']
       },
+      replace: {
+          files: ['views/**/*.jade'],
+          tasks: ['replace']
+      },
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-text-replace');
 
   grunt.config.requires('watch.server.files');
   files = grunt.config('watch.server.files');
