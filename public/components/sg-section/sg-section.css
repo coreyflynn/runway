@@ -5,4 +5,62 @@
   font-weight: normal;
   padding: 1em 0;
   border-bottom: 1px solid gray;
+  position: relative;
+}
+
+.sg-section-content {
+  opacity: 1;
+  max-height: 1000px;
+  transition: all .5s linear;
+}
+.sg-section-content.close{
+  opacity: 0;
+  max-height: 0;
+}
+
+.open-close-button {
+  position:absolute;
+  top: -0.4em;
+  left: 54%;
+  width: .6em;
+  height: .6em;
+  margin: 1em 45%;
+  font-size: 2em;
+  border-radius: 50%;
+  transition: all .5s linear;
+}
+
+.open-close-button:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: black;
+    width: 80%;
+    height: 6%;;
+    left: 10%;
+    top: 47%;
+    transition: all .5s linear;
+  }
+
+.open-close-button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: black;
+  width: 6%;
+  height: 80%;
+  left: 47%;
+  top: 10%;
+  transition: all .5s linear;
+}
+
+.open-close-button.open {
+  background-color: gray;
+  transform: rotate(225deg);
+}
+.open-close-button.open:after {
+  background-color: white;
+}
+.open-close-button.open:before {
+  background-color: white;
 }

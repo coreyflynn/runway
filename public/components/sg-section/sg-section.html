@@ -1,6 +1,28 @@
-<polymer-element name='sg-section' attributes='name' noscript>
+<polymer-element name='sg-section' attributes='name'>
   <template>
     <link rel="stylesheet" href="sg-section.css">
-    <h2 class='sg-section'>{{name}}</h2>
+    <h2 id='section' class='sg-section'>{{name}}
+      <div id='openCloseButton' class='open-close-button open' on-click={{onClick}}></div>
+    </h2>
+    <div id="content" class='sg-section-content'>
+      <content></content>
+    </div>
   </template>
+  <script>
+    Polymer({
+      onClick: function(){
+        var $el = this.$.openCloseButton,
+            $contentEl = this.$.content,
+            re = new RegExp(' open');
+
+        if (re.test($el.className)){
+          $el.className = $el.className.replace(' open','');
+          $contentEl.className = $contentEl.className + ' close';
+        }else{
+          $el.className = $el.className + ' open';
+          $contentEl.className = $contentEl.className.replace(' close','');
+        }
+      }
+    });
+  </script>
 </polymer-element>

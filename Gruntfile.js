@@ -67,7 +67,7 @@ module.exports = function (grunt) {
         }
       },
       views: {
-        files: ['views/*'],
+        files: ['views/*','public/components/**/*.html','public/components/**/*.css'],
         options: {
           livereload: reloadPort
         }
