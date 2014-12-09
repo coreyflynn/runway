@@ -18,6 +18,25 @@
   max-height: 0;
 }
 
+.sg-section-code{
+    overflow-x: auto;
+    word-wrap: normal;
+    white-space: pre;
+    max-height: 100px;
+}
+
+
+.code-button {
+  position:absolute;
+  top: -0.1em;
+  left: calc(54% - 50px);
+  width: .6em;
+  height: .6em;
+  margin: 1em 45%;
+  border-radius: 50%;
+  transition: all .5s linear;
+}
+
 .open-close-button {
   position:absolute;
   top: -0.4em;
