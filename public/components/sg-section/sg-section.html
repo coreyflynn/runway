@@ -2,8 +2,8 @@
   <template>
     <link rel="stylesheet" href="sg-section.css">
     <h2 id='section' class='sg-section'>{{name}}
-      <div id='openCloseButton' class='open-close-button open' on-click={{onClick}}></div>
-      <p class='code-button'>code</p>
+      <div id='openCloseButton' class='open-close-button open' on-click={{onOpenCloseClick}}></div>
+      <div id='eyeButton' class='eye' on-click={{onEyeClick}}></div>
     </h2>
     <div id="content" class='sg-section-content'>
       <content id='lightDOM'></content>
@@ -12,6 +12,10 @@
   </template>
   <script>
     Polymer({
+      ready: function(){
+        this.id = this.name;
+        console.log(this.id);
+      },
       showCode: function(){
         var $codeEl = this.$.code,
             lightDomNodes = this.$.lightDOM.getDistributedNodes(),
@@ -24,17 +28,38 @@
         }
         $codeEl.textContent = this.prettyPrint(contentArray.join(""));
       },
-      onClick: function(){
+      hideCode: function(){
+        var $codeEl = this.$.code;
+        $codeEl.textContent = '';
+      },
+      onOpenCloseClick: function(){
         var $el = this.$.openCloseButton,
             $contentEl = this.$.content,
+            $eyeEl = this.$.eyeButton,
             re = new RegExp(' open');
 
         if (re.test($el.className)){
           $el.className = $el.className.replace(' open','');
           $contentEl.className = $contentEl.className + ' close';
+          $eyeEl.className = $eyeEl.className + ' hidden';
         }else{
           $el.className = $el.className + ' open';
           $contentEl.className = $contentEl.className.replace(' close','');
+          $eyeEl.className = $eyeEl.className.replace(' hidden','');
+        }
+      },
+      onEyeClick: function(){
+        var $el = this.$.eyeButton,
+            $codeEl = this.$.code,
+            re = new RegExp(' open');
+        if (re.test($el.className)){
+          $el.className = $el.className.replace(' open','');
+          $codeEl.className = $codeEl.className.replace(' open','');
+          this.hideCode();
+        }else{
+          $el.className = $el.className + ' open';
+          $codeEl.className = $codeEl.className + ' open';
+          this.showCode();
         }
       },
       prettyPrint: function(xml){
