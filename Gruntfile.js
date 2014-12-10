@@ -42,6 +42,17 @@ module.exports = function (grunt) {
       }
     },
 
+    sass: {
+        dist: {
+          options: {
+            style: 'expanded'
+          },
+          files: {
+            'public/css/styles.css': 'public/css/styles.scss'
+          }
+        }
+    },
+
     watch: {
       options: {
         nospawn: true,
@@ -66,6 +77,10 @@ module.exports = function (grunt) {
           livereload: reloadPort
         }
       },
+      sass: {
+          files: ['public/css/*.scss','public/css/scss/*.scss'],
+          tasks: ['sass compile']
+      },
       views: {
         files: ['views/*','public/components/**/*.html','public/components/**/*.css'],
         options: {
@@ -85,6 +100,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-text-replace');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.config.requires('watch.server.files');
   files = grunt.config('watch.server.files');
@@ -107,4 +123,5 @@ module.exports = function (grunt) {
 
 
   grunt.registerTask('default', ['develop', 'watch']);
+  grunt.registerTask('sass compile',['sass']);
 };
