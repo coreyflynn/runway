@@ -12,6 +12,10 @@
   </template>
   <script>
     Polymer({
+      ready: function(){
+        this.id = this.name;
+        console.log(this.id);
+      },
       showCode: function(){
         var $codeEl = this.$.code,
             lightDomNodes = this.$.lightDOM.getDistributedNodes(),
