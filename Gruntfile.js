@@ -78,7 +78,7 @@ module.exports = function (grunt) {
         }
       },
       sass: {
-          files: ['public/css/*.scss','public/css/scss/*.scss'],
+          files: ['public/css/*.scss','public/css/scss/**/*.scss'],
           tasks: ['sass compile']
       },
       views: {
