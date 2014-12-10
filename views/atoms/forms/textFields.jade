@@ -1,0 +1,40 @@
+link(rel='import' href='/public/components/sg-section/sg-section.html')
+
+sg-section(name='Text Fields')
+  fieldset
+    div
+      label(for="text") Text Input
+      br
+      input(id="text" type="text" placeholder="Text Input")
+    div
+      label(for="password") Password
+      br
+      input(id="password" type="password" placeholder="Type your Password")
+    div
+      label(for="webaddress") Web Address
+      br
+      input(id="webaddress" type="url" placeholder="http://yoursite.com")
+    div
+      label(for="emailaddress") Email Address
+      br
+      input(id="emailaddress" type="email" placeholder="name@email.com")
+    div
+      label(for="search") Search
+      br
+      input(id="search" type="search" placeholder="Enter Search Term")
+    div
+      label(for="text") Number Input
+      br
+      input(id="text" type="number" placeholder="Enter a Number" pattern="[0-9]*")
+    div
+      label(for="textarea") Textarea
+      br
+      textarea(id="textarea" rows="8" cols="48" placeholder="Enter your message here")
+    div
+      label.text-warning(class="error") Error Input
+      br
+      input(class="is-error" type="text" placeholder="Text Input")
+    div
+      label.text-success(class="valid") Valid
+      br
+      input(class="is-valid" type="text" placeholder="Text Input")
